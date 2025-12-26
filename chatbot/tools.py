@@ -179,21 +179,4 @@ def claim_information(claim_id: str)-> str:
     claim_info = claim(claim_id)
     return claim_info
 
-# def search_insurance_qdrant(query, k=10):
-#   results = vector_store.similarity_search_with_score(
-#       query,
-#       k=k)
-#   for idx,result in enumerate(results):
-#     # product_id = result[0].metadata["product_id"]
-#     product_name = result[0].metadata["product_name"]
-#     category = result[0].metadata["category"]
-#     coverage_type = result[0].metadata["coverage_type"]
-#     # product_name = result[0].metadata["product_name"]
-#     content = result[0].page_content.replace(f"{product_name} - ", "")
-#     match_score = "{:.2f}".format(result[1]*100)
-#     print(f"""
-#     {idx+1}. Sesuai {match_score}% | {product_name} ({category}) {coverage_type}
-#     content : {content}
-#     """)
 
-# search_insurance_qdrant("Asuransi Rumah ada apa aja ?")

@@ -4,15 +4,9 @@ from .tools import *
 from langchain.agents import create_agent
 from langgraph.checkpoint.memory import InMemorySaver
 from langgraph_swarm import create_handoff_tool, create_swarm
-from langchain.messages import RemoveMessage
-from langchain.agents.middleware import after_model
-from langgraph.runtime import Runtime
-from langchain_core.runnables import RunnableConfig
 import logging
 
 logger = logging.getLogger(__name__)
-
-
 
 
 PRODUCT_SYSTEM_PROMPT = """
@@ -171,12 +165,6 @@ product_agent = create_agent(
     tools=[search_insurance,premi_calc_health,
            premi_calc_vehicle,premi_calc_home,insurance_recomend_email,
            policy_handoff, claim_handoff,
-          #  create_handoff_tool(agent_name="Claim_Agent",
-          #                      description="Transfer to Claim Agent"
-          #                     ),
-          #  create_handoff_tool(agent_name="Policy_Agent",
-          #                      description="Transfer to Policy Agent"
-          #                     ),           
            ],
     system_prompt=PRODUCT_SYSTEM_PROMPT,
     name="Product_Agent"
@@ -234,13 +222,6 @@ policy_agent = create_agent(
     model=llm,
     tools=[policy_information,policy_information_email,
            product_handoff, claim_handoff,
-          #  create_handoff_tool(agent_name="Product_Agent",
-          #                      description="Transfer to Product Agent"
-          #                     ),     
-          #  create_handoff_tool(agent_name="Claim_Agent",
-          #                      description="Transfer to Claim Agent"
-          #                     ),
-      
     ],
     system_prompt=POLICY_SYSTEM_PROMPT,
     name="Policy_Agent"
@@ -298,12 +279,6 @@ claim_agent = create_agent(
     model=llm,
     tools=[claim_information,
            product_handoff, policy_handoff,
-          #  create_handoff_tool(agent_name="Product_Agent",
-          #                      description="Transfer to Claim Agent"
-          #                     ),
-          #  create_handoff_tool(agent_name="Policy_Agent",
-          #                      description="Transfer to Policy Agent"
-          #                     ),     
            ],
     system_prompt=CLAIM_SYSTEM_PROMPT,
     name="Claim_Agent"
