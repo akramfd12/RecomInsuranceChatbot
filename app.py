@@ -43,14 +43,14 @@ Informasi Klaim
 
 
 #tombol bersihkan layar
-if st.sidebar.button("Clear Display"):
-    # st.session_state.messages = []
+if st.sidebar.button("Clear Chat"):
     if "thread_id" in st.session_state:
         tid = st.session_state.thread_id
         if tid in checkpointer.storage:
             del checkpointer.storage[tid]
 
     st.session_state.thread_id = str(uuid.uuid4())
+    st.session_state.messages = []
     st.rerun()
 
 with st.sidebar.expander("Example ID"):
