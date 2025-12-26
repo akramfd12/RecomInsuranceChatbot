@@ -1,9 +1,14 @@
 streamlit
 langchain
 langchain-openai
+langchain-qdrant
+langchain-voyageai
+langchain-community
 langgraph
+langgraph-swarm
 qdrant-client
 pandas
 sqlite-utils
 python-dotenv
-langgraph-swarm
+
+
