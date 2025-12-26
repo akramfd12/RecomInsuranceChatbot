@@ -4,6 +4,7 @@ from chatbot.tools import *
 from chatbot.functions import *
 from langchain_core.messages import HumanMessage, AIMessage
 import streamlit as st
+import uuid
 
 
 # -----------------------------
@@ -43,7 +44,14 @@ Informasi Klaim
 
 #tombol bersihkan layar
 if st.sidebar.button("Clear Display"):
-    st.session_state.messages = []
+    # st.session_state.messages = []
+    if "thread_id" in st.session_state:
+        tid = st.session_state.thread_id
+        if tid in checkpointer.storage:
+            del checkpointer.storage[tid]
+
+    st.session_state.thread_id = str(uuid.uuid4())
+    st.rerun()
 
 with st.sidebar.expander("Example ID"):
     st.write("Policy Number: PLS-HEALTH-001")
