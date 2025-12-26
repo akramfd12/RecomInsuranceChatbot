@@ -1,0 +1,9 @@
+streamlit
+langchain
+langchain-openai
+langgraph
+qdrant-client
+pandas
+sqlite-utils
+python-dotenv
+langgraph-swarm
