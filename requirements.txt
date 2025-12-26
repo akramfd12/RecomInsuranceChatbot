@@ -11,6 +11,8 @@ pandas
 sqlite-utils
 python-dotenv
 sentence-transformers
+transformers
+torch
 langfuse
 
 
