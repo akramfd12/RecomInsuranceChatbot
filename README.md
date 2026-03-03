@@ -23,6 +23,8 @@ Claim Agent → Claim procedures & claim status
 
 🖥️ Streamlit UI with Sidebar Navigation
 
+OPENAI API for NLP
+
 🧠 Tech Stack
 
 Python 3.11
@@ -32,6 +34,8 @@ Streamlit
 LangChain & LangGraph
 
 Qdrant (Vector Database)
+
+OPENAI API
 
 SQLite
 
